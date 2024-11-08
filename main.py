@@ -19,7 +19,19 @@ usd_idr_rate = response.json()["rates"]["IDR"]
 usd_sgd_rate = response.json()["rates"]["SGD"]
 usd_myr_rate = response.json()["rates"]["MYR"]
 
-print(df)
+# Extract specific rates into a dictionary
+rates = {
+    "USD_IDR": usd_idr_rate,
+    "USD_SGD": usd_sgd_rate,
+    "USD_MYR": usd_myr_rate
+}
+
+# Convert the dictionary to a DataFrame
+df_rates = pd.DataFrame([rates])
+
+# Display the DataFrame
+print(df_rates)
+
 # Create DataFrame
 # df = pd.DataFrame({
 #     'date today': [date_today],
