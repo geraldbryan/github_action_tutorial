@@ -18,7 +18,7 @@ jobs:
 
     - name: Clone specific folder from another repository
       run: |
-        git clone --depth 1 --filter=blob:none --sparse https://github.com/supertypeai/sectors_idx_highlights
+        git clone --depth 1 --filter=blob:none --sparse https://${{TOKEN_GITHUB}}@github.com/supertypeai/sectors_idx_highlights temp-repo
         cd temp-repo
         git sparse-checkout set json_output
         cd ..
