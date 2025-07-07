@@ -17,16 +17,18 @@ jobs:
         git config --global user.email "github-actions@github.com"
 
     - name: Clone specific folder from another repository
+      env:
+        TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
-        git clone --depth 1 --filter=blob:none --sparse https://${{TOKEN_GITHUB}}@github.com/supertypeai/sectors_idx_highlights temp-repo
+        git clone --depth 1 --filter=blob:none --sparse https://${TOKEN}@github.com/supertypeai/sectors_idx_highlights.git temp-repo
         cd temp-repo
         git sparse-checkout set json_output
         cd ..
 
     - name: Copy files to current repository
       run: |
-        mkdir -p json_output  # Change if needed
-        cp -R temp-repo/path/to/folder/* json_output/
+        mkdir -p json_output
+        cp -R temp-repo/json_output/* json_output/
 
     - name: Commit and push changes
       run: |
