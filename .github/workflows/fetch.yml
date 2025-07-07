@@ -20,7 +20,7 @@ jobs:
       env:
         TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
-        git clone --depth 1 --filter=blob:none --sparse https://${TOKEN}@github.com/supertypeai/sectors_idx_highlights.git temp-repo
+        git clone --depth 1 --filter=blob:none --sparse https://github.com/supertypeai/sectors_idx_highlights.git temp-repo
         cd temp-repo
         git sparse-checkout set json_output
         cd ..
