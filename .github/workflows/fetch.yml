@@ -30,6 +30,9 @@ jobs:
         mkdir -p json_output
         cp -R temp-repo/json_output/* json_output/
 
+    - name: Delete temporary repository
+      run: rm -rf temp-repo
+
     - name: Commit and push changes
       run: |
         git add .
